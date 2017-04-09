@@ -44,6 +44,13 @@ namespace Plex {
 	private: System::Windows::Forms::Label^  label2;
 	private: System::Windows::Forms::TextBox^  textBox2;
 	private: System::Windows::Forms::Button^  c;
+	private: System::Windows::Forms::Button^  button5;
+	private: System::Windows::Forms::TextBox^  textBox3;
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::TextBox^  textBox4;
+	private: System::Windows::Forms::Button^  button6;
+	private: System::Windows::Forms::Button^  button7;
 	protected:
 		TPoint *move;
 		
@@ -80,7 +87,7 @@ namespace Plex {
 			plex = r1;
 		}
 
-		void addTriangle()
+		void addTriangl()
 		{
 			plex = NULL;
 			move = NULL;
@@ -100,22 +107,53 @@ namespace Plex {
 		void addpoint()
 		{
 			move = NULL;
-			if (plex != NULL)
+		/*	if (plex != NULL)
 			{
 				TPoint* p = new TPoint(Convert::ToInt32(textBox1->Text), Convert::ToInt32(textBox2->Text));
 				TSharpPoint *p1 = new TSharpPoint(p);
 				TSharpRectangle *l1 = new TSharpRectangle(p1, plex);
 				plex = l1;
-			}
+			}*/
 
 
-			else {
+			//else {
 				
 				TPoint* p = new TPoint(Convert::ToInt32(textBox1->Text), Convert::ToInt32(textBox2->Text));
 				TSharpPoint *p1 = new TSharpPoint(p);
 
 				plex = p1;
-			}
+			//}
+		}
+
+		void addRect()
+		{
+			move = NULL;
+			TPoint* p = new TPoint(Convert::ToInt32(textBox1->Text), Convert::ToInt32(textBox2->Text));
+			TSharpPoint *p1 = new TSharpPoint(p);
+			TSharpRectangle *l1 = new TSharpRectangle(p1, plex);
+			plex = l1;
+
+		}
+		void addLine()
+		{
+			move = NULL;
+			TPoint* p = new TPoint(Convert::ToInt32(textBox1->Text), Convert::ToInt32(textBox2->Text));
+			TSharpPoint *p1 = new TSharpPoint(p);
+			TSharpLine *l1 = new TSharpLine(p1, plex);
+			plex = l1;
+
+		}
+
+		void addTriangle()
+		{
+			move = NULL;
+			TPoint* p = new TPoint(Convert::ToInt32(textBox1->Text), Convert::ToInt32(textBox2->Text));
+			TPoint* t = new TPoint(Convert::ToInt32(textBox4->Text), Convert::ToInt32(textBox3->Text));
+			TSharpPoint *p1 = new TSharpPoint(p);
+			TSharpPoint *t1 = new TSharpPoint(t);
+			TSharpTriangle *k = new TSharpTriangle(p1, t1, plex);
+			plex = k;
+
 		}
 
 		~MyForm()
@@ -154,16 +192,24 @@ namespace Plex {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->c = (gcnew System::Windows::Forms::Button());
+			this->button5 = (gcnew System::Windows::Forms::Button());
+			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+			this->button6 = (gcnew System::Windows::Forms::Button());
+			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
-			this->panel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->panel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->panel1->BackColor = System::Drawing::SystemColors::ActiveCaption;
-			this->panel1->Location = System::Drawing::Point(38, 26);
+			this->panel1->Location = System::Drawing::Point(38, 12);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(653, 152);
+			this->panel1->Size = System::Drawing::Size(653, 166);
 			this->panel1->TabIndex = 0;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::panel1_Paint);
 			this->panel1->MouseDown += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::panel1_MouseDown);
@@ -172,7 +218,8 @@ namespace Plex {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(363, 184);
+			this->button1->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->button1->Location = System::Drawing::Point(540, 184);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 1;
@@ -182,7 +229,8 @@ namespace Plex {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(282, 184);
+			this->button2->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->button2->Location = System::Drawing::Point(459, 184);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 23);
 			this->button2->TabIndex = 2;
@@ -192,7 +240,8 @@ namespace Plex {
 			// 
 			// button3
 			// 
-			this->button3->Location = System::Drawing::Point(201, 184);
+			this->button3->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->button3->Location = System::Drawing::Point(369, 184);
 			this->button3->Name = L"button3";
 			this->button3->Size = System::Drawing::Size(75, 23);
 			this->button3->TabIndex = 3;
@@ -202,7 +251,8 @@ namespace Plex {
 			// 
 			// button4
 			// 
-			this->button4->Location = System::Drawing::Point(38, 221);
+			this->button4->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->button4->Location = System::Drawing::Point(92, 203);
 			this->button4->Name = L"button4";
 			this->button4->Size = System::Drawing::Size(115, 23);
 			this->button4->TabIndex = 4;
@@ -212,15 +262,18 @@ namespace Plex {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(180, 218);
+			this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->textBox1->Location = System::Drawing::Point(38, 234);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(40, 20);
 			this->textBox1->TabIndex = 5;
 			// 
 			// label1
 			// 
+			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(160, 221);
+			this->label1->Location = System::Drawing::Point(18, 237);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(14, 13);
 			this->label1->TabIndex = 6;
@@ -228,8 +281,10 @@ namespace Plex {
 			// 
 			// label2
 			// 
+			this->label2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(159, 246);
+			this->label2->Location = System::Drawing::Point(17, 262);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(15, 13);
 			this->label2->TabIndex = 7;
@@ -238,13 +293,15 @@ namespace Plex {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(180, 246);
+			this->textBox2->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->textBox2->Location = System::Drawing::Point(38, 262);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(40, 20);
 			this->textBox2->TabIndex = 8;
 			// 
 			// c
 			// 
+			this->c->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
 			this->c->Location = System::Drawing::Point(583, 278);
 			this->c->Name = L"c";
 			this->c->Size = System::Drawing::Size(75, 23);
@@ -253,11 +310,87 @@ namespace Plex {
 			this->c->UseVisualStyleBackColor = true;
 			this->c->Click += gcnew System::EventHandler(this, &MyForm::c_Click);
 			// 
+			// button5
+			// 
+			this->button5->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->button5->Location = System::Drawing::Point(92, 278);
+			this->button5->Name = L"button5";
+			this->button5->Size = System::Drawing::Size(115, 45);
+			this->button5->TabIndex = 10;
+			this->button5->Text = L"Добавить прямоугольник";
+			this->button5->UseVisualStyleBackColor = true;
+			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
+			// 
+			// textBox3
+			// 
+			this->textBox3->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->textBox3->Location = System::Drawing::Point(307, 270);
+			this->textBox3->Name = L"textBox3";
+			this->textBox3->Size = System::Drawing::Size(40, 20);
+			this->textBox3->TabIndex = 14;
+			// 
+			// label3
+			// 
+			this->label3->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(286, 273);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(15, 13);
+			this->label3->TabIndex = 13;
+			this->label3->Text = L"У";
+			// 
+			// label4
+			// 
+			this->label4->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(287, 248);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(14, 13);
+			this->label4->TabIndex = 12;
+			this->label4->Text = L"Х";
+			// 
+			// textBox4
+			// 
+			this->textBox4->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->textBox4->Location = System::Drawing::Point(307, 245);
+			this->textBox4->Name = L"textBox4";
+			this->textBox4->Size = System::Drawing::Size(40, 20);
+			this->textBox4->TabIndex = 11;
+			// 
+			// button6
+			// 
+			this->button6->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->button6->Location = System::Drawing::Point(92, 237);
+			this->button6->Name = L"button6";
+			this->button6->Size = System::Drawing::Size(115, 35);
+			this->button6->TabIndex = 15;
+			this->button6->Text = L"Доавить линию";
+			this->button6->UseVisualStyleBackColor = true;
+			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
+			// 
+			// button7
+			// 
+			this->button7->Anchor = System::Windows::Forms::AnchorStyles::Bottom;
+			this->button7->Location = System::Drawing::Point(369, 245);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(88, 44);
+			this->button7->TabIndex = 16;
+			this->button7->Text = L"Добавить треугольник";
+			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &MyForm::button7_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(716, 354);
+			this->Controls->Add(this->button7);
+			this->Controls->Add(this->button6);
+			this->Controls->Add(this->textBox3);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->textBox4);
+			this->Controls->Add(this->button5);
 			this->Controls->Add(this->c);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->label2);
@@ -329,6 +462,18 @@ private: System::Void button4_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void c_Click(System::Object^  sender, System::EventArgs^  e) {
 	plex = NULL;
 	panel1->Refresh();
+}
+private: System::Void button5_Click(System::Object^  sender, System::EventArgs^  e) {
+	addRect();
+	Refresh();
+}
+private: System::Void button6_Click(System::Object^  sender, System::EventArgs^  e) {
+	addLine();
+	Refresh();
+}
+private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
+	addTriangle();
+	Refresh();
 }
 };
 }
