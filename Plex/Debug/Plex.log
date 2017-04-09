@@ -1,0 +1,10 @@
+﻿  MyForm.cpp
+c:\games\plex\plex\Plexx.h(25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\games\plex\plex\Plexx.h(26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Plex.cpp
+c:\games\plex\plex\Plexx.h(25): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\games\plex\plex\Plexx.h(26): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  AssemblyInfo.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
+  Plex.vcxproj -> C:\Games\Plex\Debug\Plex.exe
+  Plex.vcxproj -> C:\Games\Plex\Debug\Plex.pdb (Partial PDB)
